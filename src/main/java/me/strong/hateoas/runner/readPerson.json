@@ -1,0 +1,47 @@
+{
+  "result": {
+    "personKey": 1,
+    "name": "person1",
+    "birth": "2018-06-19T21:41:52.053+09:00",
+    "links": [
+      {
+        "rel": "getMethod",
+        "href": "http://localhost:8080/people/1",
+        "hreflang": null,
+        "media": null,
+        "title": null,
+        "type": null,
+        "deprecation": null
+      },
+      {
+        "rel": "methodOn",
+        "href": "http://localhost:8080/people/1",
+        "hreflang": null,
+        "media": null,
+        "title": null,
+        "type": null,
+        "deprecation": null
+      },
+      {
+        "rel": "self",
+        "href": "http://localhost:8080/people/1",
+        "hreflang": null,
+        "media": null,
+        "title": null,
+        "type": null,
+        "deprecation": null
+      },
+      {
+        "rel": "people",
+        "href": "http://localhost:8080/people",
+        "hreflang": null,
+        "media": null,
+        "title": null,
+        "type": null,
+        "deprecation": null
+      }
+    ]
+  },
+  "message": "Success",
+  "errorCode": null
+}

@@ -1,9 +1,9 @@
 {
-  "content": [
+  "result": [
     {
       "personKey": 1,
       "name": "person1",
-      "birth": "2018-06-19T13:40:38.256+09:00",
+      "birth": "2018-06-19T21:41:52.053+09:00",
       "links": [
         {
           "rel": "self",
@@ -16,9 +16,9 @@
         },
         {
           "rel": "people",
-          "href": "http://localhost:8080/people",
-          "hreflang": null,
-          "media": null,
+          "href": "http://localhost:8080",
+          "hreflang": "en",
+          "media": "application/json",
           "title": null,
           "type": null,
           "deprecation": null
@@ -28,7 +28,7 @@
     {
       "personKey": 2,
       "name": "person2",
-      "birth": "2018-06-19T13:40:38.256+09:00",
+      "birth": "2018-06-19T21:41:52.053+09:00",
       "links": [
         {
           "rel": "self",
@@ -41,9 +41,9 @@
         },
         {
           "rel": "people",
-          "href": "http://localhost:8080/people",
-          "hreflang": null,
-          "media": null,
+          "href": "http://localhost:8080",
+          "hreflang": "en",
+          "media": "application/json",
           "title": null,
           "type": null,
           "deprecation": null
@@ -53,7 +53,7 @@
     {
       "personKey": 3,
       "name": "person3",
-      "birth": "2018-06-19T13:40:38.256+09:00",
+      "birth": "2018-06-19T21:41:52.053+09:00",
       "links": [
         {
           "rel": "self",
@@ -66,9 +66,9 @@
         },
         {
           "rel": "people",
-          "href": "http://localhost:8080/people",
-          "hreflang": null,
-          "media": null,
+          "href": "http://localhost:8080",
+          "hreflang": "en",
+          "media": "application/json",
           "title": null,
           "type": null,
           "deprecation": null
@@ -76,26 +76,6 @@
       ]
     }
   ],
-  "pageable": {
-    "sort": {
-      "sorted": false,
-      "unsorted": true
-    },
-    "offset": 0,
-    "pageSize": 20,
-    "pageNumber": 0,
-    "paged": true,
-    "unpaged": false
-  },
-  "last": true,
-  "totalPages": 1,
-  "totalElements": 3,
-  "number": 0,
-  "size": 20,
-  "sort": {
-    "sorted": false,
-    "unsorted": true
-  },
-  "numberOfElements": 3,
-  "first": true
+  "message": "Success",
+  "errorCode": null
 }

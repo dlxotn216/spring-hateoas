@@ -1,0 +1,105 @@
+{
+  "result": {
+    "content": [
+      {
+        "personKey": 1,
+        "name": "person1",
+        "birth": "2018-06-19T21:41:52.053+09:00",
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/people/1",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null
+          },
+          {
+            "rel": "people",
+            "href": "http://localhost:8080/people",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null
+          }
+        ]
+      },
+      {
+        "personKey": 2,
+        "name": "person2",
+        "birth": "2018-06-19T21:41:52.053+09:00",
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/people/2",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null
+          },
+          {
+            "rel": "people",
+            "href": "http://localhost:8080/people",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null
+          }
+        ]
+      },
+      {
+        "personKey": 3,
+        "name": "person3",
+        "birth": "2018-06-19T21:41:52.053+09:00",
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/people/3",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null
+          },
+          {
+            "rel": "people",
+            "href": "http://localhost:8080/people",
+            "hreflang": null,
+            "media": null,
+            "title": null,
+            "type": null,
+            "deprecation": null
+          }
+        ]
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "sorted": false,
+        "unsorted": true
+      },
+      "offset": 0,
+      "pageSize": 20,
+      "pageNumber": 0,
+      "paged": true,
+      "unpaged": false
+    },
+    "last": true,
+    "totalPages": 1,
+    "totalElements": 3,
+    "number": 0,
+    "size": 20,
+    "sort": {
+      "sorted": false,
+      "unsorted": true
+    },
+    "numberOfElements": 3,
+    "first": true
+  },
+  "message": "Success",
+  "errorCode": null
+}
