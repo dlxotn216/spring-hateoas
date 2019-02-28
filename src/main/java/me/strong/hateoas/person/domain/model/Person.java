@@ -1,15 +1,12 @@
-package me.strong.hateoas.persion.domain.model;
+package me.strong.hateoas.person.domain.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.hateoas.Link;
 import org.springframework.hateoas.ResourceSupport;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Lee Tae Su

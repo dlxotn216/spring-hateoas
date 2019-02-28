@@ -1,16 +1,17 @@
-package me.strong.hateoas.persion.application.controller;
+package me.strong.hateoas.person.application.controller;
 
 import me.strong.hateoas.common.application.controller.AbstractController;
 import me.strong.hateoas.common.application.model.ApiResponse;
 import me.strong.hateoas.common.exception.EntityNotFoundException;
-import me.strong.hateoas.persion.application.model.PersonResource;
-import me.strong.hateoas.persion.application.model.PersonResourceAssembler;
-import me.strong.hateoas.persion.domain.model.Person;
-import me.strong.hateoas.persion.domain.repository.PersonRepository;
+import me.strong.hateoas.person.application.model.PersonResource;
+import me.strong.hateoas.person.application.model.PersonResourceAssembler;
+import me.strong.hateoas.person.domain.model.Person;
+import me.strong.hateoas.person.domain.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.ExposesResourceFor;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -44,7 +45,7 @@ public class PersonController extends AbstractController {
         return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.fromSuccessResult(personRepository.save(person)));
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "", produces = MediaTypes.HAL_JSON_VALUE)
     public ResponseEntity<ApiResponse> readPeople(Pageable pageable) {
         Page<Person> result = this.personRepository.findAll(pageable);
         result.getContent().forEach((person) -> {
@@ -61,12 +62,12 @@ public class PersonController extends AbstractController {
         return ResponseEntity.ok(ApiResponse.fromSuccessResult(resources));
     }
 
-    @GetMapping(value = "/{personKey}")
+    @GetMapping(value = "/{personKey}", produces = MediaTypes.HAL_JSON_VALUE)
     public ResponseEntity<ApiResponse> readPerson(@PathVariable Long personKey) {
         Person person = this.personRepository.findById(personKey).orElse(new Person());
 
         try {
-            person.add(ControllerLinkBuilder.linkTo(PersonController.class.getMethod("getPerson", Long.class), person.getPersonKey()).withRel("getMethod"));
+            person.add(ControllerLinkBuilder.linkTo(PersonController.class.getMethod("readPerson", Long.class), person.getPersonKey()).withRel("getMethod"));
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -75,7 +76,9 @@ public class PersonController extends AbstractController {
         person.add(ControllerLinkBuilder.linkTo(this.getClass()).slash(person.getPersonKey()).withSelfRel());
         person.add(ControllerLinkBuilder.linkTo(this.getClass()).withRel("people"));
 
-        return ResponseEntity.ok(ApiResponse.fromSuccessResult(person));
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaTypes.HAL_JSON)
+                .body(ApiResponse.fromSuccessResult(person));
     }
 
     @PutMapping(value = "/{personKey}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

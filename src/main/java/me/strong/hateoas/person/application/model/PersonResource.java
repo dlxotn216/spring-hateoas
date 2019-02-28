@@ -1,4 +1,4 @@
-package me.strong.hateoas.persion.application.model;
+package me.strong.hateoas.person.application.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

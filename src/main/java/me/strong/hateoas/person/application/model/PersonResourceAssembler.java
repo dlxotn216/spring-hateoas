@@ -1,7 +1,7 @@
-package me.strong.hateoas.persion.application.model;
+package me.strong.hateoas.person.application.model;
 
-import me.strong.hateoas.persion.application.controller.PersonController;
-import me.strong.hateoas.persion.domain.model.Person;
+import me.strong.hateoas.person.application.controller.PersonController;
+import me.strong.hateoas.person.domain.model.Person;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Component;

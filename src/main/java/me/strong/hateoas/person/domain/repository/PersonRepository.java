@@ -1,6 +1,6 @@
-package me.strong.hateoas.persion.domain.repository;
+package me.strong.hateoas.person.domain.repository;
 
-import me.strong.hateoas.persion.domain.model.Person;
+import me.strong.hateoas.person.domain.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
