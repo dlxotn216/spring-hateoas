@@ -38,23 +38,25 @@ POST 메소드를 이용한 연산은 리소스를 추가하는 것이므로 멱
 
 ## RESTful API 특성
 * 유니폼 인터페이스  
-REST는 HTTP 표준만 잘 따르면 이기종간에 통신에도 문제없는 인터페이스이다. 예를들어 JSON을 기반으로 하는 HTTP API를 정의하면  
-Android, IOS, Java, Python 등 특정 언어나 기술에 종속받지 않는 모든 플랫폼에서 사용 가능한 Loosely coupling 형태가 된다
+REST는 HTTP 표준만 잘 따르면 이기종간에 통신에도 문제없는 인터페이스이다. 예를들어 JSON을 기반으로 하는   
+HTTP API를 정의하면 Android, IOS, Java, Python 등 특정 언어나 기술에 종속받지 않는   
+모든 플랫폼에서 사용 가능한 Loosely coupling 형태가 된다
 
 * 무상태성 (Stateless)  
-REST는 상태가 없다. 즉 사용자나 클라이언트의 Context를 서버쪽에 유지하지 않는다. 대표적으로 HTTP Session과 같은 것들을  
-사용하지 않음을 의미한다. 이것은 상태정보를 저장하는 방법이 플랫폼마다 다른 부분이 많아 종속성을 가지게 됨을 방어하는 것과  
+REST는 상태가 없다. 즉 사용자나 클라이언트의 Context를 서버쪽에 유지하지 않는다.   
+대표적으로 HTTP Session과 같은 것들을  사용하지 않음을 의미한다.   
+이것은 상태정보를 저장하는 방법이 플랫폼마다 다른 부분이 많아 종속성을 가지게 됨을 방어하는 것과    
 HTTP API는 원래 요청시에 Connection을 맺고 요청이 끝난 경우엔 Connection을 끊어버리는 특성에 기반하기 때문이다.  
 
 * 캐싱 가능 (Cacheable)  
-REST는 HTTP 프로토콜을 그대로 사용하기 때문에 기존의 인프라를 그대로 사용 가능하다. HTTP 프로토콜 기반의 LB나 SSL 그리고  
-HTTP API의 캐싱기능을 적용할 수 있다. 대부분의 서비스에서 Select와 같은 조회성 API를 호출하는 것을 감안하면  
-HTTP 캐싱은 성능 면에서 많은 장점이 있다. 
+REST는 HTTP 프로토콜을 그대로 사용하기 때문에 기존의 인프라를 그대로 사용 가능하다.   
+HTTP 프로토콜 기반의 LB나 SSL 그리고 HTTP API의 캐싱기능을 적용할 수 있다.   
+대부분의 서비스에서 Select와 같은 조회성 API를 호출하는 것을 감안하면  HTTP 캐싱은 성능 면에서 많은 장점이 있다. 
 
 * 자체 표현(Self-descriptiveness)  
 RESTful API는 매우 단순하고 직관적이어서 그 자체만 보고도 이해할수 있는 Self-descriptiveness 구조를 갖는다.  
-Resource URI와 메소드를 이용해서 어떤 Resource에 무슨 행위를 하는 지 알 수 있으며 Resource 그 자체가 자신에 대한 설명을  
-담는 구조이어서 별도의 문서 없이 API 호출 자체로 이해할 수 있다.
+Resource URI와 메소드를 이용해서 어떤 Resource에 무슨 행위를 하는 지 알 수 있으며   
+Resource 그 자체가 자신에 대한 설명을 담는 구조이어서 별도의 문서 없이 API 호출 자체로 이해할 수 있다.
 
 * Client-Server 구조  
 클라이언트와 서버를 나누어 각각의 역할을 확실히 하고 서로간의 의존성을 줄일 수 있다.
@@ -137,7 +139,7 @@ Locale, Content-Type 등을 표현할 때 흔히 /home?locale=en, /users.json와
  
 * Partial Response  
 리소스에 대한 응답으로 굳이 모든 필드를 명시할 필요가 없는 케이스가 있을 것이다.  
-예를 들어 사용자의 목록을 Dropdown에 표시하는 경우엔 표시할 사용자이름, 사용자 Key, 사용자 ID 등의 정보만 필요할 것이다.  
+예를 들어 사용자의 목록을 Dropdown에 표시하는 경우엔 표시할 사용자이름, 사용자 Key, 사용자 ID 등의 정보만 필요하다.  
 그런데 사용자의 주소, 이메일, 나이 등 사용하지 않는 필드들을 함께 반환하는 것은 네크워크 대역폭에 대한 낭비이며  
 특히나 제약적인 모바일 환경에선 큰 단점이 된다. 아래와 같이 필드를 명시하는 방법이 있다.   
 
@@ -151,8 +153,10 @@ Locale, Content-Type 등을 표현할 때 흔히 /home?locale=en, /users.json와
     /users?region=seoul과 같이 검색하면 서울지역에 거주하는 사용자이다
     
     * 지역검색
-    /users?region=seoul&page=0&size=10과 같이 검색하면 page, size가 검색조건인지 페이징 조건인지 구별이 힘들다  
-    따라서 /users?q=region=seoul,name=Lee&page=0&size=10과 같이 Query string을 delimiter(,)로 구분하는 방법도 있다.
+    /users?region=seoul&page=0&size=10과 같이 검색하면 page, size가   
+    검색조건인지 페이징 조건인지 구별이 힘들다  
+    따라서 /users?q=region=seoul,name=Lee&page=0&size=10과 같이   
+    Query string을 delimiter(,)로 구분하는 방법도 있다.
     
 
 * Self-descriptive message  
@@ -174,7 +178,8 @@ Locale, Content-Type 등을 표현할 때 흔히 /home?locale=en, /users.json와
 
 * HATEOAS  
   HATEOS는 Hypermedia as the engine of application state의 약어로,    
-  하이퍼미디어의 특징을 이용하여 HTTP Response에 다음 Action이나 관계되는 리소스에 대한 HTTP Link를 함께 리턴하는 것이다.    
+  하이퍼미디어의 특징을 이용하여 HTTP Response에 다음 Action이나   
+  관계되는 리소스에 대한 HTTP Link를 함께 리턴하는 것이다.    
     
   아래 메시지는 상태에 대한 정의가 없다. 
   > HTTP/1.1  200 OK  
@@ -418,7 +423,8 @@ Template 명시
 ## Spring hateoas  
 <a href="https://docs.spring.io/spring-hateoas/docs/current/reference/html/">스프링 공식 레퍼런스</a>
 
-Spring Hateoas에서 HAL 스타일의 Link를 생성할 때 주의점은 ResourceSupport 클래스를 상속한 클래스가 응답 유형이어야 한다는 것  
+Spring Hateoas에서 HAL 스타일의 Link를 생성할 때 주의점은   
+ResourceSupport 클래스를 상속한 클래스가 응답 유형이어야 한다는 것.  
 예상으로 Response의 Content-Type이 application/hal+json이면 알아서 되지 않을까 했지만 동작하지 않았다.  
 목록형태를 반환할 때는 PagedResource로 감싸서 반환해야함을 주의해야한다.  
 
@@ -484,6 +490,7 @@ HATEOAS와 같은 부분에 대해서는 모르는 척 해왔으나 Spring의 �
 모색해본 것이 의미있다고 생각한다.   
 또한 여기서 다루지는 않지만 각 응답에 존재하는 Field에 대한 설명을 담아야 한다는 규약인 Self-descriptive는   
 Spring Rest Docs를 통해 해결할 수 있을 것으로 생각한다.  
+    
 <a href="https://github.com/dlxotn216/springrestdocs">Spring Rest Docs Repository 이동 </a>
 
 
