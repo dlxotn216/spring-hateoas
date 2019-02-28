@@ -296,8 +296,10 @@ Template 명시
                       {"name": "alternateName", "value": "sdong", "prompt": "Alias"}
                 ],
                 "links": [
-                    {"rel": "image", "href": "https://api.example.com/player/1895638109/avatar.png", "prompt": "Avatar", "render": "image" },
-                    {"rel": "friends", "href": "https://api.example.com/player/1895638109/friends", "prompt": "Friends" }
+                    {"rel": "image", "href": "https://api.example.com/player/1895638109/avatar.png", 
+                          "prompt": "Avatar", "render": "image" },
+                    {"rel": "friends", "href": "https://api.example.com/player/1895638109/friends", 
+                          "prompt": "Friends" }
                 ]
             },
             {
@@ -308,8 +310,10 @@ Template 명시
                       {"name": "alternateName", "value": "mliu", "prompt": "Alias"}
                 ],
                 "links": [
-                    {"rel": "image", "href": "https://api.example.com/player/8371023509/avatar.png", "prompt": "Avatar", "render": "image" },
-                    {"rel": "friends", "href": "https://api.example.com/player/8371023509/friends", "prompt": "Friends" }
+                    {"rel": "image", "href": "https://api.example.com/player/8371023509/avatar.png", 
+                          "prompt": "Avatar", "render": "image" },
+                    {"rel": "friends", "href": "https://api.example.com/player/8371023509/friends", 
+                          "prompt": "Friends" }
                 ]
             }
         ],
@@ -427,10 +431,12 @@ spring.hateoas.use-hal-as-default-json-media-type=false
  Response의 Content-type을 application/json으로 명시한다
  ```java
 @GetMapping("/members/{memberKey}")
-public ResponseEntity<MemberDto.ResourceSupportedApiResponse> searchMember(@PathVariable("memberKey") Long memberKey) {
+public ResponseEntity<MemberDto.ResourceSupportedApiResponse> searchMember(
+                                                                @PathVariable("memberKey") Long memberKey) {
     return ResponseEntity.status(HttpStatus.OK)
             .contentType(MediaType.APPLICATION_JSON)
-            .body(new MemberDto.ResourceSupportedApiResponse("success", this.memberSearchService.searchMember(memberKey)));
+            .body(new MemberDto.ResourceSupportedApiResponse("success", 
+                        this.memberSearchService.searchMember(memberKey)));
 }
 ```
 
