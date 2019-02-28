@@ -91,6 +91,13 @@ Resource URI와 메소드를 이용해서 어떤 Resource에 무슨 행위를 �
 /users/add와 같이 생성이랑는 액션을 담지 않는다.  
 [POST] /users 와 같이 HTTP Method로도 충분하다
 
+* HTTP Header를 적절히 사용한다  
+Locale, Content-Type 등을 표현할 때 흔히 /home?locale=en, /users.json와 같이 query parameter로 넘기는 경우가 많다  
+하지만 이것은 각각 Accpet-Language, Content-Type 헤더로 표현할 수 있다.  
+<a href="https://github.com/dlxotn216/LocaleResolver">Spring LocaleResolver 참고</a>
+
+
+
 *  HTTP Status code를 적절히 사용한다  
 
 | HTTP Status Code |               의미              |
